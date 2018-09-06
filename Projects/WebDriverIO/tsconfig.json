@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "rootDir": "src",
+    "outDir": "dist",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": true,
+    "removeComments": false,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": false
+  },
+  "exclude": [
+    "*dist*",
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.d.ts"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "usePrecompiledFiles": true
+  }
+}
