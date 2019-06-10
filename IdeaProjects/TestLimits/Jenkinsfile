@@ -1,0 +1,22 @@
+pipeline {
+    agent {
+        docker {
+            image 'maven:3.3.9'
+        }
+    }
+    parameters {
+        choice(name: 'GAME', choices: 'sw_pp\nsw_fkmj\nsw_cscf\nsw_slws\nsw_wr\nsw_ec\nsw_lfss\nsw_lucky_jungle\nsw_fg\nsw_gtg\nsw_mpp\nsw_bd\nsw_qwerty\nsw_mm\nsw_gq\nsw_lfs\nsw_whmj\nsw_jqw\nsw_hcs\nsw_sixng\nsw_bl\nsw_kog\nsw_tc\nsw_gk\nsw_sf\nsw_omqjp\nsw_tr\nsw_kxcs\nsw_dj\nsw_pc\nsw_fc\nsw_zcxm\nsw_sctz\nsw_jxl', description: 'Choose the game')
+    }
+    options {
+        disableConcurrentBuilds()
+        timestamps()
+        timeout(time: 1, unit: 'HOURS')
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh "mvn compile test -Dgame=${GAME}"
+            }
+        }
+    }
+}
